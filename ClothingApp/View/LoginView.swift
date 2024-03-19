@@ -18,7 +18,7 @@ struct LoginView: View {
                     HStack{
                         Text("FABULOUS")
                             .font(.system(size: 30, weight: .bold, design: .default))
-                            .foregroundColor(.red)
+                            .foregroundColor(.O_1)
                             .padding(.top, 10)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
@@ -54,22 +54,34 @@ struct LoginView: View {
                 Divider()
                     .background(Color.black)
                     .padding(.vertical, 10)
+                VStack{
+                    
+                    Text("CUSTOMER LOGIN")
+                        .font(.system(size: 25, weight: .regular, design: .default))
+                        .foregroundColor(.black)
+                        .padding(.top, 30)
+                    
+                    Image(systemName: "person.circle.fill")
+                        .font(.system(size: 40))
+                        .foregroundColor(.O_2)
+                        .padding(.bottom, 10)
+                }
                 
-                Text("CUSTOMER LOGIN")
-                    .font(.system(size: 25, weight: .regular, design: .default))
-                    .padding(.top, 30)
                 
                 VStack(spacing: 20){
                     
                     TextField("USER NAME",text: $email)
                         .padding()
-                        .border(Color.gray, width: 1)
+                        .border(Color.O_2, width: 1)
+                        .cornerRadius(7)
                         .padding(.horizontal)
                     
                     SecureField("PASSWORD", text: $password)
                         .padding()
-                        .border(Color.gray, width: 1)
+                        .border(Color.O_2, width: 1)
+                        .cornerRadius(7)
                         .padding(.horizontal)
+                        
                     
                     //Spacer()
                     Button(action:{
@@ -77,7 +89,7 @@ struct LoginView: View {
                     }){
                         Text("Forget Password?")
                             .font(.subheadline)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.O_1)
                     }.padding(.trailing, 20)
                     
                     Button(action: {
@@ -88,7 +100,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                            .background(Color.blue)
+                            .background(Color.O_2)
                             .cornerRadius(8)
                         
                     }.padding(.horizontal)
@@ -107,7 +119,7 @@ struct LoginView: View {
                 
                 Spacer()
             }
-            .background(Color.white)
+            //.background(Color.O_4)
             .navigationBarTitle("",displayMode: .inline)
             .navigationBarHidden(true)
         }//.padding(.bottom, 600)

@@ -22,7 +22,7 @@ struct HomePageView: View {
                     HStack{
                         Text("FABULOUS")
                             .font(.system(size: 30, weight: .bold, design: .default))
-                            .foregroundColor(.red)
+                            .foregroundColor(.O_1)
                             .padding(.top, 10)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
@@ -105,6 +105,7 @@ struct HomePageView: View {
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
+            .background(Color.O_2)
             
         }
     }
