@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomePageView: View {
-    let images = ["p1","p2","p3","p1"]
+    let images = ["p1","p2","p3","p4","p5"]
     let colors: Color = .orange
     @State private var currentIndex=0
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()

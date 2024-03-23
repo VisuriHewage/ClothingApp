@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductView: View {
     @State private var selectedFilter = 0
     let filterOptions = ["All","Tops","Dresses","Jeans","Skirts"]
+    let collectionName: String
     var body: some View {
         NavigationView{
             VStack(spacing: 0){
@@ -43,9 +44,9 @@ struct ProductView: View {
                 Divider()
                     .background(Color.black)
                 HStack{
-                    Text("CATEGORY")
-                        .font(.system(size: 25, weight: .semibold))
-                        .foregroundColor(.black)
+                    Text(" \(collectionName) COLLECTION")
+                        .font(.system(size: 25, weight: .semibold, design: .rounded))
+                        .foregroundColor(.O_5)
                         .padding(.leading)
                         .padding(.top, 20)
                         
@@ -65,8 +66,15 @@ struct ProductView: View {
             
                 
                 ScrollView{
-                    
-                }
+                    Spacer()
+                        LazyVGrid (columns : Array(repeating: GridItem(), count: 2),spacing: 15){
+                            ForEach(product, id: \.id){
+                                product in
+                                ProductCardView(product: product)
+                            }
+                        }
+                        
+                    }
     
                 }.navigationBarHidden(true)
                     //.padding(.bottom, 10)
@@ -79,5 +87,5 @@ struct ProductView: View {
 }
 
 #Preview {
-    ProductView()
+    ProductView(collectionName: "kkk")
 }

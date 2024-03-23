@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProductCollectionView: View {
+    
+   // let productCollection : [ProductCollections]=[]
+    //= ["p2","p3","p4","p5"]
     var body: some View {
         NavigationView{
             VStack(spacing: 0){
@@ -38,9 +41,28 @@ struct ProductCollectionView: View {
                     .background(Color.white)
                 
                 Divider()
+                Spacer()
+                Text("ALL COLLECTIONS")
+                    .font(.system(size: 24, weight: .regular, design: .rounded))
+                    .foregroundColor(.O_2)
+                    .padding(.top, 15)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                    
+                Spacer()
                 ScrollView{
+                    Spacer()
                     
+                        ForEach(productCollections, id: \.id){
+                        collection in
+                            NavigationLink(destination: ProductView(collectionName: collection.name)){
+                                CollectionCardView(collection: collection)
+                            }
+                                
+                            
+                        }
                     
+                   
                 }
             }
             .navigationBarHidden(true)

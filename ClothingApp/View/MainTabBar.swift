@@ -25,7 +25,7 @@ struct MainTabBar: View {
                 .tabItem { Image(systemName: "cart").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
                     Text("Cart")}
                 .tag(2)
-            ProductView()
+            ProductCollectionView()
                 .tabItem{ Image(systemName: "storefront")
                     Text("Collection")
                     
