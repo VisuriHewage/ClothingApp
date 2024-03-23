@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomePageView: View {
-    let images = ["g","f4","f2","a"]
+    let images = ["p1","p2","p3","p1"]
     let colors: Color = .orange
     @State private var currentIndex=0
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -35,12 +35,7 @@ struct HomePageView: View {
                                 .foregroundColor(.black)
                         }
                         
-                        Button(action: {
-                            
-                        }){Image(systemName: "person")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
+                       
                         Button(action: {
                             
                         }){Image(systemName: "line.horizontal.3")
@@ -53,7 +48,7 @@ struct HomePageView: View {
                         
                     
                 }.frame(height: 50)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 10)
                 
                  Divider()
                     .background(Color.black)
@@ -63,8 +58,8 @@ struct HomePageView: View {
                             VStack{
                                 Image(self.images[index])
                                     .resizable()
-                                    .frame(width: .infinity, height: 250)
-                                    .scaledToFit()
+                                    .frame(width: .infinity, height: 255)
+                                    //.scaledToFit()
                                     .cornerRadius(20)
                                 HStack(spacing: 10){
                                     ForEach(0..<self.images.count){ i in
@@ -85,13 +80,13 @@ struct HomePageView: View {
                             currentIndex = (currentIndex+1) % images.count
                         }
                     }
-                    //.padding(.bottom, 300)
+                    .padding(.top, 20)
                 
-                Text("New Arrivals")
+                Text("NEW ARRIVALS")
                     .font(.system(size: 25, weight: .semibold, design: .default))
                     .foregroundColor(.black)
                 Text("__")
-                    .padding(.bottom, 290)
+                    .padding(.bottom, 240)
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 10){
@@ -105,7 +100,7 @@ struct HomePageView: View {
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
-            .background(Color.O_2)
+            .background()
             
         }
     }

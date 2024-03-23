@@ -31,12 +31,7 @@ struct LoginView: View {
                                 .foregroundColor(.black)
                         }
                         
-                        Button(action: {
-                            
-                        }){Image(systemName: "person")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
+                       
                         Button(action: {
                             
                         }){Image(systemName: "line.horizontal.3")
@@ -54,18 +49,18 @@ struct LoginView: View {
                 Divider()
                     .background(Color.black)
                     .padding(.vertical, 10)
-                VStack{
+                //VStack{
                     
                     Text("CUSTOMER LOGIN")
                         .font(.system(size: 25, weight: .regular, design: .default))
                         .foregroundColor(.black)
-                        .padding(.top, 30)
+                        .padding(.top, 35)
                     
                     Image(systemName: "person.circle.fill")
-                        .font(.system(size: 40))
+                        .font(.system(size: 60))
                         .foregroundColor(.O_2)
-                        .padding(.bottom, 10)
-                }
+                        .padding(.top, 10)
+               // }.padding()
                 
                 
                 VStack(spacing: 20){
@@ -115,7 +110,7 @@ struct LoginView: View {
                     
                     
                 }
-                .padding(.vertical, 60)
+                .padding(.vertical, 30)
                 
                 Spacer()
             }

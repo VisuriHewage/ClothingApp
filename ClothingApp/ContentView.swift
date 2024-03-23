@@ -8,22 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tabSelection = 1
+    @State private var isActive = false
+    @State private var size = 0.8
+    @State private var opacity=0.5
     var body: some View {
-        TabView(selection: $tabSelection){
-            Text("Tab Content 1")
-                .tag(1)
-            Text("Tab Content 2")
-                .tag(2)
-            Text("Tab Content 3")
-                .tag(3)
-            Text("Tab Content 4")
-                .tag(4)
-            
+        if isActive{
+            MainTabBar()
         }
-        .overlay(alignment: .bottom){
-            
+        else{
+            VStack{
+                VStack{
+                    
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200,height: 200)
+                    
+                      //  .frame(maxWidth: .infinity, alignment: .leading)
+                        //.padding(.leading)
+                }
+                .scaleEffect(size)
+                .opacity(opacity)
+                .onAppear{
+                    withAnimation(.easeIn(duration: 1.2)){
+                        self.size=1.5
+                        self.opacity=1.0
+                    }
+                }
+            }.onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0){
+                    self.isActive=true
+                }
+            }
         }
+       //Text("")
+ 
     }
 }
 
