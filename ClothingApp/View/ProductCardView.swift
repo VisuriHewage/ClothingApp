@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ProductCardView: View {
-    let product : ProductsModel
+    var product : Product?
     var body: some View {
         VStack{
             
-            Image(product.imageName)
+            Image("p1")
                 .resizable()
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 .frame(width: 130, height: 130)
                 .cornerRadius(2)
-            Text(product.name)
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.O_2)
-            Text("$\(product.price)")
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.O_2)
+            Text(product?.name ?? "gg")
+                .font(.system(size: 15, weight: .regular, design: .rounded))
+                .foregroundColor(.black)
+            Text("$\(product?.price ?? "")")
+                .font(.system(size: 18, weight: .regular))
+                .foregroundColor(.black)
                 
             
             
@@ -35,5 +35,6 @@ struct ProductCardView: View {
 }
 
 #Preview {
-    ProductCardView(product: product[0])
+    //let  sample = ProductsModel(name: "b", price: "78")
+    ProductCardView()
 }

@@ -11,6 +11,7 @@ struct HomePageView: View {
     let images = ["p1","p2","p3","p4","p5"]
     let colors: Color = .orange
     @State private var currentIndex=0
+    @StateObject var prodVM : ProductViewModel = ProductViewModel()
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     
@@ -86,12 +87,17 @@ struct HomePageView: View {
                     .font(.system(size: 25, weight: .semibold, design: .default))
                     .foregroundColor(.black)
                 Text("__")
-                    .padding(.bottom, 240)
+                //    .padding(.bottom, 240)
                 
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 10){
-                        
-                    }
+                ScrollView(){
+                   // HStack(spacing: 10){
+                        LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 15){
+                            ForEach(prodVM.products, id: \.id){
+                                product in
+                                ProductCardView(product: product)
+                            }
+                        }
+                    //}
                 }
                 .padding()
                     
