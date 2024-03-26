@@ -31,17 +31,21 @@ struct HomePageView: View {
                         Spacer()
                         Button(action: {
                             
-                        }){Image(systemName: "bag")
+                        }){
+                            Image(systemName: "bag")
                                 .font(.title3)
                                 .foregroundColor(.black)
+                        
                         }
                         
                        
                         Button(action: {
                             
-                        }){Image(systemName: "line.horizontal.3")
+                        }){NavigationLink(destination: SearchView()){
+                            Image(systemName: "line.horizontal.3")
                                 .font(.title3)
                                 .foregroundColor(.black)
+                        }
                         }
                     }.padding(.trailing)
                     

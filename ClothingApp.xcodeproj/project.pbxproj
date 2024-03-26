@@ -29,6 +29,7 @@
 		DE3513A02BB1A8BE00D2B55B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE35139F2BB1A8BE00D2B55B /* ProductModel.swift */; };
 		DE3513A22BB1EDC400D2B55B /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3513A12BB1EDC400D2B55B /* SearchScreen.swift */; };
 		DE3513A42BB1EE8700D2B55B /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3513A32BB1EE8700D2B55B /* testModel.swift */; };
+		DE3513A62BB3221400D2B55B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3513A52BB3221300D2B55B /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		DE35139F2BB1A8BE00D2B55B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		DE3513A12BB1EDC400D2B55B /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		DE3513A32BB1EE8700D2B55B /* testModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
+		DE3513A52BB3221300D2B55B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				DE3513922BAF1CCB00D2B55B /* CollectionCardView.swift */,
 				DE3513992BAF50B800D2B55B /* ProductCardView.swift */,
 				DE3513A12BB1EDC400D2B55B /* SearchScreen.swift */,
+				DE3513A52BB3221300D2B55B /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				DE3513872BA6B97900D2B55B /* HomePageView.swift in Sources */,
 				DE35138F2BA9F74E00D2B55B /* ProductView.swift in Sources */,
 				DE3513A02BB1A8BE00D2B55B /* ProductModel.swift in Sources */,
+				DE3513A62BB3221400D2B55B /* SearchView.swift in Sources */,
 				DE3513892BA8A0C800D2B55B /* LoginView.swift in Sources */,
 				DE35139D2BB094EF00D2B55B /* ProductController.swift in Sources */,
 				DE35139A2BAF50B800D2B55B /* ProductCardView.swift in Sources */,

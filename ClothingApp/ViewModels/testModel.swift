@@ -73,6 +73,7 @@ class testModel : ObservableObject{
         self.products = self.products.filter{ $0.prdType == prdType}
     }
     
+    
 //    private func extractCategories(from products: [ProductList]) {
 //            // Extracting categories from products
 //            let categories = products.map { $0.category }

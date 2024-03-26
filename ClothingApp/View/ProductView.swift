@@ -92,7 +92,9 @@ struct ProductView: View {
                         LazyVGrid (columns : Array(repeating: GridItem(), count: 2),spacing: 15){
                             ForEach(productVM.products, id: \.id){
                                 product in
-                                ProductCardView(product: product)
+                                NavigationLink(destination: SearchScreen(product: product)){
+                                    ProductCardView(product: product)
+                                }
                             }
                         }
                         
