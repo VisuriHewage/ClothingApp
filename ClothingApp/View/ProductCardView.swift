@@ -46,9 +46,9 @@ struct ProductCardView: View {
            
         }
         .padding()
-            .background(Color.white)
+        .background(Color.white)
             .cornerRadius(12)
-            .overlay(RoundedRectangle(cornerRadius:  12).stroke(Color.O_2, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius:  12).stroke(Color.O_2, lineWidth: 2))
             //.shadow(radius: 5)
             .overlay(
                 ZStack{

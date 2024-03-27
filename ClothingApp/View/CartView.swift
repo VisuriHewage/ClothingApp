@@ -21,12 +21,28 @@ struct CartView: View {
                 HStack{
                     Text("Your cart total is ")
                     Spacer()
-                    Text("Rs \(cartManager.total).00")
+                    Text("$ \(cartManager.total).00")
                         .bold()
                 }
                 .padding()
+                ZStack{
+                    Button(action: {
+                        
+                    }){
+                        Text("Check Out")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .background(Color.O_2)
+                            .cornerRadius(8)
+                        
+                    }.padding(.horizontal)
+                }
+                
             } else {
-                Text("Cart Is Empty!")
+                Text("Your Cart Is Empty!")
+                    .font(.system(size: 25))
             }
             
         }

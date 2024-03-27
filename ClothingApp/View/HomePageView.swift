@@ -46,14 +46,7 @@ struct HomePageView: View {
                         }
                         
                        
-                        Button(action: {
-                            
-                        }){NavigationLink(destination: SearchView()){
-                            Image(systemName: "magnifyingglass")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
-                        }
+                        
                     }.padding(.trailing)
                     
                     
@@ -104,9 +97,10 @@ struct HomePageView: View {
                    // HStack(spacing: 10){
                         LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 15){
                             ForEach(prodVM.products, id: \.id){
-                                product in
-                                ProductCardView(product: product)
-                                    .environmentObject(cartManager)
+                                product in NavigationLink(destination: ProductDetailView(product: product)){
+                                    ProductCardView(product: product)
+                                        .environmentObject(cartManager)
+                                }
                             }
                         }
                     //}
