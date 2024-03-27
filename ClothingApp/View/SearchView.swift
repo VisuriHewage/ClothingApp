@@ -19,7 +19,7 @@ struct SearchView: View {
     var product : Product?
     
     var filteredProduct: [Product]{
-        guard searchProd.isEmpty else{
+        guard !searchProd.isEmpty else{
             return  prodView.products}
         return prodView.products.filter{$0.name.localizedCaseInsensitiveContains(searchProd)}
         
@@ -28,68 +28,49 @@ struct SearchView: View {
         NavigationStack{
             List(filteredProduct, id: \.id){
                 product in
-                HStack(spacing: 17){
-//                    Image("p1")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-//                        .frame(width: 44, height: 44)
-                    if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                            .frame(width: 130, height: 130)
-                            .cornerRadius(2)
-                    } else {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle())
-                            .frame(width: 100, height: 100)
+                NavigationLink(destination: ProductDetailView(product:product)) {
+                    HStack(spacing: 17){
+
+                        if let imageURL = URL(string: "https://lk-kellyfelder.s3.ap-southeast-1.amazonaws.com/gallery"+product.imageURL),
+                           let imageData = try? Data(contentsOf: imageURL),
+                           let uiImage = UIImage(data: imageData){
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 30)
+                                .padding()
+                        }
+                        
+                        Text(product.name)
+                            .font(.caption2)
+                            .padding()
                     }
-                    
-                    Text(product.name)
-                        .font(.caption2)
-                        .padding()
-                }.onAppear{
-                    //guard let imageUrlString = product.imageURL,
-//                    let imageUrl = URL(string: "https://lk-kellyfelder.s3.ap-southeast-1.amazonaws.com/gallery" + product.imageURL); 
-//                    else{
-//                        return
-//                    }
-//                    URLSession.shared.dataTask(with: imageUrl){
-//                        data, response, error in
-//                        guard let data = data, error == nil else{
-//                            print("Error in image Loading")
-//                            return
-//                        }
-//                        
-//                        DispatchQueue.main.async{
-//                            self.imageData = data
-//                        }
-//                    }.resume()
                 }
+
             }
             .navigationTitle("Search Products")
             .searchable(text: $searchProd, prompt: "Search")
         }
     }
-    func loadImage(imgUrl:String){
-        
-        guard let imageUrlString = product?.imageURL,
-              let imageUrl = URL(string: "https://lk-kellyfelder.s3.ap-southeast-1.amazonaws.com/gallery"+imageUrlString) else{
-            return
-        }
-        URLSession.shared.dataTask(with: imageUrl){
-            data, response, error in
-            guard let data = data, error == nil else{
-                print("Error in image Loading")
-                return
-            }
-            
-            DispatchQueue.main.async{
-                self.imageData = data
-            }
-        }.resume()
-    }
+//    func loadImage(imgUrl:String){
+//        
+//        guard let imageUrlString = product?.imageURL,
+//              let imageUrl = URL(string: "https://lk-kellyfelder.s3.ap-southeast-1.amazonaws.com/gallery"+imageUrlString) else{
+//            return
+//        }
+//        URLSession.shared.dataTask(with: imageUrl){
+//            data, response, error in
+//            guard let data = data, error == nil else{
+//                print("Error in image Loading")
+//                return
+//            }
+//            
+//            DispatchQueue.main.async{
+//                self.imageData = data
+//            }
+//        }.resume()
+//    }
 }
 
 #Preview {

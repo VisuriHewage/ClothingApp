@@ -28,6 +28,7 @@ struct MainTabBar: View {
 //                    Text("Cart")}
 //                .tag(2)
             SearchView()
+                .environmentObject(cartManager)
                 .tabItem{
                     Image(systemName: "magnifyingglass").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
                     Text("Search").tag(2)
