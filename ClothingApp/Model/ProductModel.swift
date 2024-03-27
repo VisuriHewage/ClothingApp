@@ -67,7 +67,7 @@ struct ProductModel: Decodable {
 }
 
 // MARK: - Datum
-struct Product: Decodable {
+struct Product: Decodable, Identifiable {
     let id: String
     let name: String
     let price: String

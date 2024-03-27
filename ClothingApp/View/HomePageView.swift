@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomePageView: View {
+    @EnvironmentObject var cartManager : CartManager
     let images = ["p1","p2","p3","p4","p5"]
     let colors: Color = .orange
     @State private var currentIndex=0
@@ -29,20 +30,26 @@ struct HomePageView: View {
                             .padding(.leading)
                         
                         Spacer()
-                        Button(action: {
-                            
-                        }){
-                            Image(systemName: "bag")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        
+//                        Button(action: {
+//                            
+//                        }){
+//                            Image(systemName: "bag")
+//                                .font(.title3)
+//                                .foregroundColor(.black)
+//                        
+//                        }
+                        NavigationLink{
+                            CartView()
+                                .environmentObject(cartManager)
+                        } label:{
+                            Carticon(numberOfProducts: cartManager.cartItems.count)
                         }
                         
                        
                         Button(action: {
                             
                         }){NavigationLink(destination: SearchView()){
-                            Image(systemName: "line.horizontal.3")
+                            Image(systemName: "magnifyingglass")
                                 .font(.title3)
                                 .foregroundColor(.black)
                         }
@@ -99,6 +106,7 @@ struct HomePageView: View {
                             ForEach(prodVM.products, id: \.id){
                                 product in
                                 ProductCardView(product: product)
+                                    .environmentObject(cartManager)
                             }
                         }
                     //}
@@ -117,4 +125,5 @@ struct HomePageView: View {
 }
 #Preview {
     HomePageView()
+        .environmentObject(CartManager())
 }

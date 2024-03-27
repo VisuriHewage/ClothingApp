@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct SearchScreen: View {
+struct ProductDetailView: View {
+    @EnvironmentObject var cartManager : CartManager
     
     let product: Product
+   // let onClose: () -> Void
     var body: some View {
         VStack{
             if let imageURL = URL(string: "https://lk-kellyfelder.s3.ap-southeast-1.amazonaws.com/gallery"+product.imageURL),
@@ -30,15 +32,20 @@ struct SearchScreen: View {
             Text(product.description)
                 .font(.title)
                 .padding()
+            Button(action: {
+                cartManager.addToCart(product: product)
+            }, label: {
+                Text("ADD TO CART")
+            })
             
-        }
+        }.navigationTitle(product.name)
     }
 }
 
-#Preview {
-    Group
-    {
-        var sample = Product(id: "1",name: "bbb",price: "mm",prdType: "",collectionName: "j",v:0,imageURL:"h",description: "kkk")
-        SearchScreen(product: sample)
-    }
-}
+//#Preview {
+//    Group
+//    {
+//        var sample = Product(id: "1",name: "bbb",price: "mm",prdType: "",collectionName: "j",v:0,imageURL:"h",description: "kkk")
+//        SearchScreen(product: sample)
+//    }
+//}

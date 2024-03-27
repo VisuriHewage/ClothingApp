@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainTabBar: View {
     
-    
+    @StateObject var cartManager = CartManager()
     var body: some View {
         TabView(){
             HomePageView()
+                .environmentObject(cartManager)
             .tabItem {
                 Image(systemName: "house").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
                     Text("Home")
@@ -21,11 +22,18 @@ struct MainTabBar: View {
             LoginView()
                 .tabItem { Image(systemName: "person").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
                     Text("Account")}.tag(1)
-            CartView()
-                .tabItem { Image(systemName: "cart").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
-                    Text("Cart")}
-                .tag(2)
+//                 CartView()
+//                .environmentObject(cartManager)
+//                .tabItem { Image(systemName: "cart").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
+//                    Text("Cart")}
+//                .tag(2)
+            SearchView()
+                .tabItem{
+                    Image(systemName: "magnifyingglass").renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
+                    Text("Search").tag(2)
+                }
             ProductCollectionView()
+                .environmentObject(cartManager)
                 .tabItem{ Image(systemName: "storefront")
                     Text("Collection")
                     
