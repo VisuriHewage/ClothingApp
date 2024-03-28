@@ -92,8 +92,11 @@ struct ProductView: View {
         //                    .padding()
         Picker(selection: $selectedType, label: Text("Select Product Type")){
             Text("All").tag("All")
-            Text("Jeans").tag("Jeans")
+            Text("Top").tag("Top")
+            Text("Jean").tag("Jeans")
             Text("Dress").tag("Dress")
+            Text("Skirt").tag("Skirt")
+            Text("JumpSuit").tag("JumpSuit")
         }.pickerStyle(SegmentedPickerStyle())
             .onChange(of: selectedType){
                 newValue in

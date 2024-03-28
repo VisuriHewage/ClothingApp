@@ -13,6 +13,6 @@ struct ProductCollections: Identifiable, Hashable{
     let imageName: String
 }
 
-let productCollections = [ ProductCollections(name: "ELEGANTIA", imageName: "p2"),
-ProductCollections(name: "LUSH", imageName: "p3"),ProductCollections(name: "SLAY IN COZY", imageName: "p4"),ProductCollections(name: "BLANDUS", imageName: "p5")
+let productCollections = [ ProductCollections(name: "ELEGANTIA COLLECTION", imageName: "p2"),
+ProductCollections(name: "LUSH COLLECTION", imageName: "p3"),ProductCollections(name: "SLAY IN COZY COLLECTION", imageName: "p4"),ProductCollections(name: "BLANDUS COLLECTION", imageName: "p5")
 ]
