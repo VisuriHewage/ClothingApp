@@ -31,12 +31,7 @@ struct ProductCollectionView: View {
                     }.padding(.trailing)
                     
                     
-                    Button(action: {
-                        
-                    }){Image(systemName: "line.horizontal.3")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                    }.padding(.trailing)
+                    
                 }.frame(height: 60)
                     .background(Color.white)
                 

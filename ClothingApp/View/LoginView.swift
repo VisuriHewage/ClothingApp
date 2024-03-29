@@ -32,12 +32,7 @@ struct LoginView: View {
                         }
                         
                        
-                        Button(action: {
-                            
-                        }){Image(systemName: "line.horizontal.3")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
+                        
                     }.padding(.trailing)
                     
                     
